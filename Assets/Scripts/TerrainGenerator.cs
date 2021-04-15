@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class TerrainGenerator : MonoBehaviour
 {
-    NavMeshSurface nms = new NavMeshSurface();
     public int width = 256;                                                         // terrain volumes stored in variables
     public int height = 256;
     public int depth = 20;
@@ -14,15 +13,15 @@ public class TerrainGenerator : MonoBehaviour
     public float offsety = 100f;
 
     public float scale = 20f;                                                       //scale to zoom in or out
-    // Start is called before the first frame update
-    void Start()
+
+    void Awake()
     {
-        nms = GetComponent<NavMeshSurface>();
+        //surfaces = GetComponent<NavMeshSurface>();
         offsetx = Random.Range(0f, 99999f);                                         //randomizing
         offsety = Random.Range(0f, 99999f);
         Terrain terrain = GetComponent<Terrain>();                                   //getting component
         terrain.terrainData = GenerateTerrain(terrain.terrainData);                  //changing terraindata to our generated data
-        nms.BuildNavMesh();
+        //surfaces.BuildNavMesh();
     }
 
     // Update is called once per frame

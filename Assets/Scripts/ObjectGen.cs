@@ -15,7 +15,7 @@ public class ObjectGen : MonoBehaviour
     [Header("Objects In Scene")]
     public int objectcount;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         StartCoroutine(GenerateObjects());                  //starting multi-thread task
     }

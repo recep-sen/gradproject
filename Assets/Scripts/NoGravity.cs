@@ -24,19 +24,15 @@ public class NoGravity : MonoBehaviour
             if (grounded)                                   //if it is then start the process of destroying
             {
                 StartCoroutine(DstryRb());
-
             }
         }
-
     }
     IEnumerator DstryRb()                  //process of destroying the rb
     {                                      //waiting for 5 seconds to adjust all objects to their pozisitons
                                            //after that destroy the object
-
         yield return new WaitForSeconds(5);
 
         Destroy(rb);
         destroyed = true;
-
     }
 }
