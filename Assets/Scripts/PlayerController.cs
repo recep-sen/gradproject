@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
             transform.Rotate(-Vector3.up * Time.deltaTime * rtspeed);
         }
 
-        Vector3 move = transform.right * x + transform.forward * y;         //calculating movement vector from input
+        Vector3 move = transform.forward * y;         //calculating movement vector from input
         Vector3 newmove = new Vector3(move.x, rb.velocity.y, move.z);
         //transform.rotation = Quaternion.LookRotation(move);
         //Quaternion newrotate = Quaternion.Euler(0, (x * 18), 0);
