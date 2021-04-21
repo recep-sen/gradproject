@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        gameState = GameState.MainMenu;
+        //gameState = GameState.MainMenu;
     }
 
     public enum GameState
@@ -34,5 +34,14 @@ public class GameManager : MonoBehaviour
         Loading,
         Gameplay,
         GameExit
+    }
+    void Update()
+    {
+        Debug.Log(gameState);
+        if (gameState == GameState.Loading)
+        {
+            Debug.Log("LOADING");
+        }
+
     }
 }

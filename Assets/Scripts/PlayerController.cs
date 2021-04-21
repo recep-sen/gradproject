@@ -14,11 +14,14 @@ public class PlayerController : MonoBehaviour
     private bool grounded;                       // a bool so i can check am i in the air or not
 
     private Transform transform;
+    private Transform transf;
+    private float needforrotation;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();                  //adding component to variable
         transform = GetComponent<Transform>();
+        transf = transform.Find("CameraRotation").GetComponentInChildren<Transform>();
 
     }
 
@@ -41,6 +44,7 @@ public class PlayerController : MonoBehaviour
         {
             transform.Rotate(-Vector3.up * Time.deltaTime * rtspeed);
         }
+
 
         Vector3 move = transform.forward * y;         //calculating movement vector from input
         Vector3 newmove = new Vector3(move.x, rb.velocity.y, move.z);
