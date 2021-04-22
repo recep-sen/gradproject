@@ -13,15 +13,15 @@ public class PlayerController : MonoBehaviour
     public LayerMask lm;                        //getting layer so we can check it in the future
     private bool grounded;                       // a bool so i can check am i in the air or not
 
-    private Transform transform;
+    private Transform transformdata;
     private Transform transf;
     private float needforrotation;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();                  //adding component to variable
-        transform = GetComponent<Transform>();
-        transf = transform.Find("CameraRotation").GetComponentInChildren<Transform>();
+        transformdata = GetComponent<Transform>();
+        transf = transformdata.Find("CameraRotation").GetComponentInChildren<Transform>();
 
     }
 
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     {
         float x = Input.GetAxisRaw("Horizontal") * speed;                 //getting input
         float y = Input.GetAxisRaw("Vertical") * speed;
-        grounded = Physics.CheckSphere(new Vector3(transform.position.x, transform.position.y - 0.4f, transform.position.z), 0.4f, lm);     //checking if am i close to floor so i cant jump indefinetly
+        grounded = Physics.CheckSphere(new Vector3(transformdata.position.x, transformdata.position.y - 0.4f, transformdata.position.z), 0.4f, lm);     //checking if am i close to floor so i cant jump indefinetly
 
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
@@ -38,15 +38,15 @@ public class PlayerController : MonoBehaviour
         }
         if (x > 0)
         {
-            transform.Rotate(Vector3.up * Time.deltaTime * rtspeed);
+            transformdata.Rotate(Vector3.up * Time.deltaTime * rtspeed);
         }
         else if (x < 0)
         {
-            transform.Rotate(-Vector3.up * Time.deltaTime * rtspeed);
+            transformdata.Rotate(-Vector3.up * Time.deltaTime * rtspeed);
         }
 
 
-        Vector3 move = transform.forward * y;         //calculating movement vector from input
+        Vector3 move = transformdata.forward * y;         //calculating movement vector from input
         Vector3 newmove = new Vector3(move.x, rb.velocity.y, move.z);
         //transform.rotation = Quaternion.LookRotation(move);
         //Quaternion newrotate = Quaternion.Euler(0, (x * 18), 0);
