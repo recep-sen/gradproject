@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     #region Singleton
     public static GameManager instance;
+    public static int sceneToLoad;
 
     private void Awake()
     {
@@ -25,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //gameState = GameState.MainMenu;
+
     }
 
     public enum GameState
@@ -37,11 +39,16 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(gameState);
         if (gameState == GameState.Loading)
         {
-            Debug.Log("LOADING");
+            gotoloading();
         }
 
+
+    }
+    public void gotoloading()
+    {
+        sceneToLoad = 2;
+        SceneManager.LoadScene(1);
     }
 }

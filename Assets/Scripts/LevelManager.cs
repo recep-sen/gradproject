@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 
@@ -22,31 +23,19 @@ public class LevelManager : MonoBehaviour
     private bool loaded = false;
     void Awake()
     {
-        GameManager.instance.gameState = GameManager.GameState.Loading;
-        Debug.Log(GameManager.instance.gameState);
+
+        GameManager.instance.gameState = GameManager.GameState.Gameplay;
         LevelLoading();
+
+
 
 
     }
 
     void LevelLoading()
     {
-        StartCoroutine(GenerateTerrain());
-        StartCoroutine(GenerateObjects());
-    }
-
-    IEnumerator GenerateTerrain()
-    {
         randomterrain = Random.Range(0, 1);
-        Instantiate(Terrain1[randomterrain], new Vector3(0, 0, 0), Quaternion.identity);
-        yield return null;
-    }
-    IEnumerator GenerateObjects()                               //if you need to create object it creates in a random given position
-    {
-        if (objectcount == quantity)
-        {
-            loaded = true;
-        }
+        Instantiate(Terrain1[0], new Vector3(0, 0, 0), Quaternion.identity);
         while (objectcount < quantity)
         {
             randomobject = Random.Range(0, 1);
@@ -54,13 +43,10 @@ public class LevelManager : MonoBehaviour
             z = Random.Range(0, 500);
             if (randomobject == 0)
             {
-                Debug.Log(randomobject);
+
                 Instantiate(object1[randomobject], new Vector3(x, 20, z), Quaternion.identity);
             }
-            yield return null;
             objectcount++;
         }
-        GameManager.instance.gameState = GameManager.GameState.Gameplay;
-
     }
 }
