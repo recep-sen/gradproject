@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     #region Singleton
     public static GameManager instance;
     public static int sceneToLoad;
+    public GameState gameState;
 
     private void Awake()
     {
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    public GameState gameState;
+
 
     void Start()
     {
@@ -35,13 +36,22 @@ public class GameManager : MonoBehaviour
         MainMenu,
         Loading,
         Gameplay,
-        GameExit
+        GameExit,
+        Dieded
     }
     void Update()
     {
         if (gameState == GameState.Loading)
         {
             gotoloading();
+        }
+        else if (gameState == GameState.GameExit)
+        {
+            gotoexit();
+        }
+        else if (gameState == GameState.Dieded)
+        {
+            dieded();
         }
 
 
@@ -50,5 +60,12 @@ public class GameManager : MonoBehaviour
     {
         sceneToLoad = 2;
         SceneManager.LoadScene(1);
+    }
+    public void gotoexit()
+    {
+        Application.Quit();
+    }
+    public void dieded()
+    {
     }
 }
