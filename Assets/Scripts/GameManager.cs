@@ -37,7 +37,8 @@ public class GameManager : MonoBehaviour
         Loading,
         Gameplay,
         GameExit,
-        Dieded
+        Dieded,
+        Gotomenu
     }
     void Update()
     {
@@ -53,6 +54,10 @@ public class GameManager : MonoBehaviour
         {
             dieded();
         }
+        else if (gameState == GameState.Gotomenu)
+        {
+            gotomainmenu();
+        }
 
 
     }
@@ -67,5 +72,10 @@ public class GameManager : MonoBehaviour
     }
     public void dieded()
     {
+    }
+    public void gotomainmenu()
+    {
+        SceneManager.LoadScene(0);
+        gameState = GameState.MainMenu;
     }
 }

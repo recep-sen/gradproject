@@ -13,8 +13,11 @@ public class IngameUiSlider : MonoBehaviour
     Statbloc statbloc;
     TextMeshProUGUI healthtext;
     GameObject deathscreen;
-    GameObject subui;
     RawImage diededscreenimage;
+    Image[] diedimage;
+    Text[] diedtext;
+    TextMeshProUGUI youdiedtext;
+    Button[] diedbutton;
 
     void Start()
     {
@@ -24,7 +27,10 @@ public class IngameUiSlider : MonoBehaviour
         healthtext = GetComponentInChildren<TextMeshProUGUI>();
         deathscreen = GameObject.Find("Dieded");
         diededscreenimage = deathscreen.GetComponentInChildren<RawImage>();
-
+        diedimage = deathscreen.GetComponentsInChildren<Image>();
+        diedtext = deathscreen.GetComponentsInChildren<Text>();
+        youdiedtext = deathscreen.GetComponentInChildren<TextMeshProUGUI>();
+        diedbutton = deathscreen.GetComponentsInChildren<Button>();
     }
 
     // Update is called once per frame
@@ -45,6 +51,19 @@ public class IngameUiSlider : MonoBehaviour
             {
                 GameManager.instance.gameState = GameManager.GameState.Dieded;
                 diededscreenimage.enabled = true;
+                for (int i = 0; i < diedimage.Length; i++)
+                {
+                    diedimage[i].enabled = true;
+                }
+                for (int j = 0; j < diedtext.Length; j++)
+                {
+                    diedtext[j].enabled = true;
+                }
+                youdiedtext.enabled = true;
+                for (int g = 0; g < diedbutton.Length; g++)
+                {
+                    diedbutton[g].enabled = true;
+                }
             }
 
         }
