@@ -16,13 +16,15 @@ public class PlayerController : MonoBehaviour
     private Transform transformdata;
     private Transform transf;
     private float needforrotation;
+    private Animator anim;
+    private bool isMoving;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();                  //adding component to variable
         transformdata = GetComponent<Transform>();
         transf = transformdata.Find("CameraRotation").GetComponentInChildren<Transform>();
-
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -51,6 +53,15 @@ public class PlayerController : MonoBehaviour
         //transform.rotation = Quaternion.LookRotation(move);
         //Quaternion newrotate = Quaternion.Euler(0, (x * 18), 0);
         rb.velocity = newmove;
+        if (y > 0 || y < 0)
+        {
+            anim.SetBool("isMoving", true);
+        }
+        else
+        {
+            anim.SetBool("isMoving", false);
+        }
+        anim.SetFloat("MovSpeed", speed);
         //rb.rotation = Quaternion.RotateTowards(transform.rotation, newrotate, 360f);                                      //giving vector to component so movement can be done
     }
     /*void OnDrawGizmosSelected()

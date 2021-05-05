@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 202844478}
   - component: {fileID: 202844477}
   - component: {fileID: 202844479}
+  - component: {fileID: 1616958673}
   m_Layer: 0
   m_Name: FemaleDummy
   m_TagString: Player
@@ -316,6 +317,24 @@ MonoBehaviour:
   lm:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &1616958673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3966708725887359702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b435c28cf01b1e542a755465a135f5fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxhealth: 100
+  health: 100
+  armor: 0
+  respawn: 2
+  damage: 0
+  money: 0
 --- !u!1 &3966708725887359706
 GameObject:
   m_ObjectHideFlags: 0
