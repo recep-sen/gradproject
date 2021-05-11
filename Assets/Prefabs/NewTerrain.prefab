@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5219819192651701113}
   - component: {fileID: 5219819192651701118}
   - component: {fileID: 5219819192651701119}
-  - component: {fileID: 5219819192651701115}
   m_Layer: 6
   m_Name: NewTerrain
   m_TagString: Untagged
@@ -48,7 +47,7 @@ Terrain:
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 15
+  m_DetailObjectDistance: 93.98
   m_DetailObjectDensity: 1
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
@@ -58,7 +57,7 @@ Terrain:
   m_DrawInstanced: 0
   m_DrawTreesAndFoliage: 1
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 2100000, guid: 1cbaee1df18ffbc4fa83eaf12a30f1be, type: 2}
+  m_MaterialTemplate: {fileID: 2100000, guid: 324f59304d2c3ea42884050e428651c0, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
@@ -96,32 +95,3 @@ MonoBehaviour:
   offsetx: 100
   offsety: 100
   scale: 18
---- !u!114 &5219819192651701115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5219819192651701116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 192
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.2
-  m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 0}

@@ -36,8 +36,12 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
+            anim.SetBool("isJumping", true);
+            StartCoroutine(Jumpanimationfin());
             rb.velocity = new Vector3(rb.velocity.x, jump, rb.velocity.y);       //jumping with if statetement to check am i up in the air
+            //anim.SetBool("isJumping", false);
         }
+
         if (x > 0)
         {
             transformdata.Rotate(Vector3.up * Time.deltaTime * rtspeed);
@@ -61,8 +65,22 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("isMoving", false);
         }
-        anim.SetFloat("MovSpeed", speed);
+        if (Input.GetMouseButtonDown(0))
+        {
+            anim.SetBool("isAttacking", true);
+            StartCoroutine(Attackanimationfin());
+        }
         //rb.rotation = Quaternion.RotateTowards(transform.rotation, newrotate, 360f);                                      //giving vector to component so movement can be done
+    }
+    IEnumerator Jumpanimationfin()
+    {
+        yield return new WaitForSeconds(0.5f);
+        anim.SetBool("isJumping", false);
+    }
+    IEnumerator Attackanimationfin()
+    {
+        yield return new WaitForSeconds(2.01f);
+        anim.SetBool("isAttacking", false);
     }
     /*void OnDrawGizmosSelected()
     {

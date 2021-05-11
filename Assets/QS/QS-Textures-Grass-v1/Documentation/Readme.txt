@@ -1,4 +1,4 @@
-Thank you for acquire our product (Nature Materials vol.1 - Version Free).
+Thank you for acquire our product (Nature Materials vol.2 - Version Free).
 
 Contact:
 www.swg2.com.br

@@ -615,7 +615,7 @@ ModelImporter:
     - name: f_index.03.L
       parentName: f_index.02.L
       position: {x: -0.0000000047683715, y: 0.0252819, z: 0.00000015050172}
-      rotation: {x: 0.036369763, y: -0.0022250442, z: 0.009746818, w: 0.9992885}
+      rotation: {x: 0.03636976, y: -0.0022250442, z: 0.009746817, w: 0.9992885}
       scale: {x: 1, y: 1, z: 1}
     - name: f_index.03.L_end
       parentName: f_index.03.L
@@ -745,7 +745,7 @@ ModelImporter:
     - name: f_index.01.R
       parentName: palm.01.R
       position: {x: -0.000000009536743, y: 0.062369272, z: 0.00000013262033}
-      rotation: {x: 0.03739, y: 0.06039183, z: -0.044755805, w: 0.9964696}
+      rotation: {x: 0.037390005, y: 0.06039183, z: -0.04475581, w: 0.9964696}
       scale: {x: 1, y: 1, z: 1}
     - name: f_index.02.R
       parentName: f_index.01.R
@@ -770,7 +770,7 @@ ModelImporter:
     - name: thumb.02.R
       parentName: thumb.01.R
       position: {x: -0.00000011920929, y: 0.03739377, z: 0.000000009536743}
-      rotation: {x: 0.03044989, y: 0.03401332, z: -0.016739665, w: 0.99881715}
+      rotation: {x: 0.030449891, y: 0.03401332, z: -0.016739666, w: 0.99881715}
       scale: {x: 1, y: 0.99999994, z: 1}
     - name: thumb.03.R
       parentName: thumb.02.R
@@ -795,7 +795,7 @@ ModelImporter:
     - name: f_middle.02.R
       parentName: f_middle.01.R
       position: {x: -0.000000006556511, y: 0.044377215, z: -0.000000020042062}
-      rotation: {x: 0.037444636, y: -0.0354241, z: -0.003659548, w: 0.998664}
+      rotation: {x: 0.037444633, y: -0.0354241, z: -0.0036595475, w: 0.998664}
       scale: {x: 0.99999976, y: 0.99999994, z: 1}
     - name: f_middle.03.R
       parentName: f_middle.02.R
@@ -845,7 +845,7 @@ ModelImporter:
     - name: f_pinky.02.R
       parentName: f_pinky.01.R
       position: {x: -0.000000026226044, y: 0.024970794, z: 0.00000012934207}
-      rotation: {x: 0.03901198, y: -0.010213816, z: -0.013539045, w: 0.9990948}
+      rotation: {x: 0.039011985, y: -0.010213816, z: -0.013539046, w: 0.9990948}
       scale: {x: 1.0000001, y: 1, z: 1}
     - name: f_pinky.03.R
       parentName: f_pinky.02.R

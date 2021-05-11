@@ -7,8 +7,6 @@ using UnityEngine.AI;
 public class LevelManager : MonoBehaviour
 
 {
-    public NavMeshSurface[] surfaces;
-    public Transform[] objectsToRotate;
     // Start is called before the first frame update
     [Header("Generated Texture")]
     public GameObject[] Terrain1;
@@ -49,17 +47,6 @@ public class LevelManager : MonoBehaviour
                 Instantiate(object1[randomobject], new Vector3(x, 20, z), Quaternion.identity);
             }
             objectcount++;
-        }
-        surfaces[0] = Terrain1[randomterrain].GetComponent<NavMeshSurface>();
-
-        for (int j = 0; j < objectsToRotate.Length; j++)                        //loop for rotation
-        {
-            objectsToRotate[j].localRotation = Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0));
-        }
-        for (int i = 0; i < surfaces.Length; i++)                               //building navigation
-        {
-            Debug.Log("I need to build");
-            surfaces[i].BuildNavMesh();
         }
     }
 }
