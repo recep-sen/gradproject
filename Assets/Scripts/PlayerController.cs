@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [Header("SELECT GROUND LAYER")]
     public LayerMask lm;                        //getting layer so we can check it in the future
     private bool grounded;                       // a bool so i can check am i in the air or not
-
+    private LayerMask lm2;
     private Transform transformdata;
     private Transform transf;
     private float needforrotation;
@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
         transformdata = GetComponent<Transform>();
         transf = transformdata.Find("CameraRotation").GetComponentInChildren<Transform>();
         anim = GetComponent<Animator>();
+        lm2 = LayerMask.GetMask("Interactable");
     }
 
     // Update is called once per frame
@@ -70,7 +71,16 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isAttacking", true);
             StartCoroutine(Attackanimationfin());
         }
-        //rb.rotation = Quaternion.RotateTowards(transform.rotation, newrotate, 360f);                                      //giving vector to component so movement can be done
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            RaycastHit hit;
+            if (Physics.SphereCast(transform.position, 2f, transform.forward, out hit, 2f, lm2))
+            {
+                Transform foundintractable = hit.transform;
+                GameObject foundone = foundintractable.gameObject;
+                foundone.GetComponent<ChestScript>().SetTrue();
+            }
+        }
     }
     IEnumerator Jumpanimationfin()
     {
@@ -82,9 +92,5 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(2.01f);
         anim.SetBool("isAttacking", false);
     }
-    /*void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - 0.4f, transform.position.z), 0.4f);
-    }*/
+
 }

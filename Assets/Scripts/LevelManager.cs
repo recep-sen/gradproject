@@ -7,7 +7,10 @@ using UnityEngine.AI;
 public class LevelManager : MonoBehaviour
 
 {
-    // Start is called before the first frame update
+
+    public GameObject[] chests;
+    public int chest_quantity;
+    public int chest_objectcount;
     [Header("Generated Texture")]
     public GameObject[] Terrain1;
     [Header("Generated Objects")]                           //getting necessary components and variables
@@ -47,6 +50,18 @@ public class LevelManager : MonoBehaviour
             Instantiate(object1[randomobject], new Vector3(x, 20, z), Quaternion.identity);
 
             objectcount++;
+        }
+        while (chest_objectcount < chest_quantity)
+        {
+            randomobject = Random.Range(0, chests.Length);
+            x = Random.Range(0, 500);
+            z = Random.Range(0, 500);
+
+
+
+            Instantiate(chests[randomobject], new Vector3(x, 20, z), Quaternion.identity);
+
+            chest_objectcount++;
         }
     }
 }
