@@ -25,7 +25,7 @@ public class TerrainGenerator : MonoBehaviour
         Terrain terrain = GetComponent<Terrain>();                                   //getting component
         terrain.terrainData = GenerateTerrain(terrain.terrainData);                  //changing terraindata to our generated data
                                                                                      //surfaces.BuildNavMesh();
-        Material chosenone = materials[Random.Range(0, materials.Length + 1)];
+        Material chosenone = materials[Random.Range(0, materials.Length)];
         terrain.materialTemplate = chosenone;
     }
 

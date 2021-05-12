@@ -2159,6 +2159,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5804001622913408365, guid: 4323d471130e84248870514500e4cb29,
         type: 3}
+      propertyPath: object1.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804001622913408365, guid: 4323d471130e84248870514500e4cb29,
+        type: 3}
       propertyPath: Terrain1.Array.size
       value: 6
       objectReference: {fileID: 0}
@@ -2166,6 +2171,29 @@ PrefabInstance:
         type: 3}
       propertyPath: surfaces.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804001622913408365, guid: 4323d471130e84248870514500e4cb29,
+        type: 3}
+      propertyPath: object1.Array.data[0]
+      value: 
+      objectReference: {fileID: 1054875215801658, guid: dee7a332df32c9a4f99531ce6d5c277c,
+        type: 3}
+    - target: {fileID: 5804001622913408365, guid: 4323d471130e84248870514500e4cb29,
+        type: 3}
+      propertyPath: object1.Array.data[1]
+      value: 
+      objectReference: {fileID: 1826823735867886, guid: 84b6dcc9019b86143812a6901fecd619,
+        type: 3}
+    - target: {fileID: 5804001622913408365, guid: 4323d471130e84248870514500e4cb29,
+        type: 3}
+      propertyPath: object1.Array.data[2]
+      value: 
+      objectReference: {fileID: 1437338821391258, guid: b3f53efc1247d5144b4437b91e1b37ab,
+        type: 3}
+    - target: {fileID: 5804001622913408365, guid: 4323d471130e84248870514500e4cb29,
+        type: 3}
+      propertyPath: object1.Array.data[3]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5804001622913408365, guid: 4323d471130e84248870514500e4cb29,
         type: 3}

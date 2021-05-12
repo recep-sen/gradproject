@@ -38,14 +38,14 @@ public class LevelManager : MonoBehaviour
         Instantiate(Terrain1[randomterrain], new Vector3(0, 0, 0), Quaternion.identity);
         while (objectcount < quantity)
         {
-            randomobject = Random.Range(0, 1);
+            randomobject = Random.Range(0, object1.Length);
             x = Random.Range(0, 500);
             z = Random.Range(0, 500);
-            if (randomobject == 0)
-            {
 
-                Instantiate(object1[randomobject], new Vector3(x, 20, z), Quaternion.identity);
-            }
+
+
+            Instantiate(object1[randomobject], new Vector3(x, 20, z), Quaternion.identity);
+
             objectcount++;
         }
     }
