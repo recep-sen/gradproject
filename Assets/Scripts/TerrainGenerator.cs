@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 public class TerrainGenerator : MonoBehaviour
 {
+    public Material[] materials;
+
+
     public int width = 256;                                                         // terrain volumes stored in variables
     public int height = 256;
     public int depth = 20;
@@ -21,14 +24,12 @@ public class TerrainGenerator : MonoBehaviour
         offsety = Random.Range(0f, 99999f);
         Terrain terrain = GetComponent<Terrain>();                                   //getting component
         terrain.terrainData = GenerateTerrain(terrain.terrainData);                  //changing terraindata to our generated data
-        //surfaces.BuildNavMesh();
+                                                                                     //surfaces.BuildNavMesh();
+        Material chosenone = materials[Random.Range(0, materials.Length + 1)];
+        terrain.materialTemplate = chosenone;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
 
     TerrainData GenerateTerrain(TerrainData terrainData)                                    //this method generates terrain data and returns it
     {                                                                                       //sets size and resolution also calls method that generate heights
@@ -36,6 +37,7 @@ public class TerrainGenerator : MonoBehaviour
         terrainData.size = new Vector3(width, depth, height);
 
         terrainData.SetHeights(0, 0, GenerateHeights());
+
         return terrainData;
     }
 
