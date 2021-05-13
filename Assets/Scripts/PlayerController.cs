@@ -55,9 +55,9 @@ public class PlayerController : MonoBehaviour
 
         Vector3 move = transformdata.forward * y;         //calculating movement vector from input
         Vector3 newmove = new Vector3(move.x, rb.velocity.y, move.z);
-        //transform.rotation = Quaternion.LookRotation(move);
-        //Quaternion newrotate = Quaternion.Euler(0, (x * 18), 0);
         rb.velocity = newmove;
+
+
         if (y > 0 || y < 0)
         {
             anim.SetBool("isMoving", true);
