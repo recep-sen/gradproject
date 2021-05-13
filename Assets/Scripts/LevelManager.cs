@@ -11,6 +11,9 @@ public class LevelManager : MonoBehaviour
     public GameObject[] chests;
     public int chest_quantity;
     public int chest_objectcount;
+    public GameObject[] enemies;
+    public int enemy_quantity;
+    public int enemy_objectcount;
     [Header("Generated Texture")]
     public GameObject[] Terrain1;
     [Header("Generated Objects")]                           //getting necessary components and variables
@@ -62,6 +65,18 @@ public class LevelManager : MonoBehaviour
             Instantiate(chests[randomobject], new Vector3(x, 20, z), Quaternion.identity);
 
             chest_objectcount++;
+        }
+        while (enemy_objectcount < enemy_quantity)
+        {
+            randomobject = Random.Range(0, enemies.Length);
+            x = Random.Range(0, 500);
+            z = Random.Range(0, 500);
+
+
+
+            Instantiate(enemies[randomobject], new Vector3(x, 20, z), Quaternion.identity);
+
+            enemy_objectcount++;
         }
     }
 }
