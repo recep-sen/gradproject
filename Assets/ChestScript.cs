@@ -36,7 +36,13 @@ public class ChestScript : MonoBehaviour
                 statbloc.money += 50;
                 a = 10;
             }
-            alreadyplayed = false;
+            else if (a == 2)
+            {
+                statbloc.health -= 50;
+                Explodedchest explodedChest = GetComponentInChildren<Explodedchest>();
+                explodedChest.Explode();
+            }
+            alreadyplayed = true;
         }
     }
 }
