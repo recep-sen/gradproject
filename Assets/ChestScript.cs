@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ChestScript : MonoBehaviour
 {
-    public static bool gotinteracted = false;
     Animator anim;
+    private bool alreadyplayed = false;
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -14,16 +14,14 @@ public class ChestScript : MonoBehaviour
 
     void Update()
     {
-        if (gotinteracted)
-        {
-            // play animation
-            Debug.Log("AYOL BÝÞEY DEÐDÝ BANA");
-            gotinteracted = false;
-        }
+
+
     }
     public void SetTrue()
     {
-
-        gotinteracted = true;
+        if (!alreadyplayed)
+        {
+            //chest animation
+        }
     }
 }

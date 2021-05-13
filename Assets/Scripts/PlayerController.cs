@@ -73,14 +73,19 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            RaycastHit hit;
-            if (Physics.SphereCast(transform.position, 2f, transform.forward, out hit, 2f, lm2))
+
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, 2f);
+            foreach (var hitCollider in hitColliders)
             {
-                Transform foundintractable = hit.transform;
-                GameObject foundone = foundintractable.gameObject;
-                foundone.GetComponent<ChestScript>().SetTrue();
+                GameObject foundone = hitCollider.gameObject;
+
+                if (foundone.TryGetComponent(out ChestScript chestScript))
+                {
+                    chestScript.SetTrue();
+                }
             }
         }
+
     }
     IEnumerator Jumpanimationfin()
     {
@@ -92,5 +97,9 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(2.01f);
         anim.SetBool("isAttacking", false);
     }
-
+    /*private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(transform.position + transform.forward * 20f, 20f);
+    }*/
 }
