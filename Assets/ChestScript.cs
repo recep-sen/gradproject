@@ -13,13 +13,6 @@ public class ChestScript : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         statbloc = GameObject.FindGameObjectWithTag("Player").GetComponent<Statbloc>();
     }
-
-
-    void Update()
-    {
-
-
-    }
     public void SetTrue()
     {
         if (!alreadyplayed)
@@ -41,6 +34,7 @@ public class ChestScript : MonoBehaviour
                 statbloc.health -= 50;
                 Explodedchest explodedChest = GetComponentInChildren<Explodedchest>();
                 explodedChest.Explode();
+                a = 10;
             }
             alreadyplayed = true;
         }

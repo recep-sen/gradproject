@@ -26,13 +26,19 @@ public class trapActivated : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        tobeactivated.SetActive(true);
-        timeron = true;
-        statbloc.health -= 2;
+        if (other.tag == "Player")
+        {
+            tobeactivated.SetActive(true);
+            timeron = true;
+            statbloc.health -= 2;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
-        tobeactivated.SetActive(false);
-        timeron = false;
+        if (other.tag == "Player")
+        {
+            tobeactivated.SetActive(false);
+            timeron = false;
+        }
     }
 }
