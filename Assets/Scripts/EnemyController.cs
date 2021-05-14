@@ -9,38 +9,44 @@ public class EnemyController : MonoBehaviour
     Transform target;
     public float distance;
     GameObject arrow;
+    private float timer = 0f;
     // Start is called before the first frame update
     void Start()
     {
-
-
-
     }
 
     // Update is called once per frame
-    void Update()                                                                   //telling the ai to chase player
+    void FixedUpdate()                                                                   //telling the ai to chase player
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
         distance = Vector3.Distance(transform.position, target.position);
-        if (distance <= 20f)
+
+        if (timer >= 2f && distance <= 20f)
         {
             transform.LookAt(target);
             arrow = shootarrow();
+            timer = 0f;
+        }
+        else if (distance <= 20f)
+        {
+            transform.LookAt(target);
+            timer += Time.deltaTime;
         }
     }
     GameObject shootarrow()
     {
         if (arrow != null)
         {
-            arrow.transform.position = new Vector3(transform.position.x - 0.016f, transform.position.y - 0.004f, transform.position.z + 0.01f);
-            arrow.GetComponent<Rigidbody>().velocity = transform.forward * 100f; /*shootforce*/
+            arrow.transform.position = transform.position + (Vector3.up * 0.6f);
+            arrow.GetComponent<Stick>().Unsticked();
+            arrow.GetComponent<Rigidbody>().velocity = transform.forward * 30f; /*shootforce*/
             return arrow;
         }
         else
         {
-            arrow = Instantiate(arrowprefab, new Vector3(transform.position.x - 0.016f, transform.position.y - 0.004f, transform.position.z + 0.01f), Quaternion.identity);
-            arrow.GetComponent<Rigidbody>().velocity = transform.forward * 100f; /*shootforce*/
+            arrow = Instantiate(arrowprefab, transform.position + (Vector3.up * 0.6f), Quaternion.identity);
+            arrow.GetComponent<Rigidbody>().velocity = transform.forward * 30f; /*shootforce*/
             return arrow;
         }
     }
-}//0 0.2 0  0.016 0.024 -0.01
+}

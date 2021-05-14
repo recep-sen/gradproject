@@ -2799,9 +2799,10 @@ GameObject:
   - component: {fileID: 3826587929264251357}
   - component: {fileID: 4898816378173436641}
   - component: {fileID: 7424326951796097908}
+  - component: {fileID: -1683101660427106685}
   m_Layer: 8
   m_Name: SkeletonWarrior_II
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2885,6 +2886,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowprefab: {fileID: 111768, guid: 802986766a97b4a108b97eb5fdf6e02f, type: 3}
   distance: 0
+--- !u!114 &-1683101660427106685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8979536952676561975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5b39f90f1743fa40ab8cba8774a15b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lm:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &9034077044002711942
 GameObject:
   m_ObjectHideFlags: 0

@@ -69,8 +69,8 @@ public class LevelManager : MonoBehaviour
         while (enemy_objectcount < enemy_quantity)
         {
             randomobject = Random.Range(0, enemies.Length);
-            x = Random.Range(0, 100);
-            z = Random.Range(0, 100);
+            x = Random.Range(0, 500);
+            z = Random.Range(0, 500);
 
 
 
