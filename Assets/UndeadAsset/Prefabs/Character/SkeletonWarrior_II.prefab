@@ -2886,6 +2886,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowprefab: {fileID: 111768, guid: 802986766a97b4a108b97eb5fdf6e02f, type: 3}
   distance: 0
+  smokeprefab: {fileID: 1642322455942316, guid: d26aaf76e6e2409448242b9a2d66f31f,
+    type: 3}
 --- !u!114 &-1683101660427106685
 MonoBehaviour:
   m_ObjectHideFlags: 0

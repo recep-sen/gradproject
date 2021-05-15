@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     GameObject arrow;
     private float timer = 0f;
     Animator anim;
+    public GameObject smokeprefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,5 +59,17 @@ public class EnemyController : MonoBehaviour
 
             return arrow;
         }
+    }
+    public void Died()
+    {
+        anim.SetBool("Dead", true);
+        timer = -100000f;
+        StartCoroutine(Die());
+    }
+    IEnumerator Die()
+    {
+        yield return new WaitForSeconds(5f);
+        Instantiate(smokeprefab, transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
     }
 }
