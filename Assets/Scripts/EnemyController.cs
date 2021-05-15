@@ -10,9 +10,11 @@ public class EnemyController : MonoBehaviour
     public float distance;
     GameObject arrow;
     private float timer = 0f;
+    Animator anim;
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -21,16 +23,22 @@ public class EnemyController : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").transform;
         distance = Vector3.Distance(transform.position, target.position);
 
-        if (timer >= 2f && distance <= 20f)
+        if (timer >= 5f && distance <= 20f)
         {
             transform.LookAt(target);
             arrow = shootarrow();
+
             timer = 0f;
         }
         else if (distance <= 20f)
         {
+            anim.SetBool("isAttacking", true);
             transform.LookAt(target);
             timer += Time.deltaTime;
+        }
+        else
+        {
+            anim.SetBool("isAttacking", false);
         }
     }
     GameObject shootarrow()
@@ -39,13 +47,15 @@ public class EnemyController : MonoBehaviour
         {
             arrow.transform.position = transform.position + (Vector3.up * 0.6f);
             arrow.GetComponent<Stick>().Unsticked();
-            arrow.GetComponent<Rigidbody>().velocity = transform.forward * 30f; /*shootforce*/
+            arrow.GetComponent<Rigidbody>().velocity = transform.forward * 20f; /*shootforce*/
+
             return arrow;
         }
         else
         {
             arrow = Instantiate(arrowprefab, transform.position + (Vector3.up * 0.6f), Quaternion.identity);
-            arrow.GetComponent<Rigidbody>().velocity = transform.forward * 30f; /*shootforce*/
+            arrow.GetComponent<Rigidbody>().velocity = transform.forward * 20f; /*shootforce*/
+
             return arrow;
         }
     }

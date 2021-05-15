@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Stick : MonoBehaviour
 {
-    Rigidbody rb;
+    public Rigidbody rb;
     public bool hitsomething = false;
     public LayerMask lm;
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
         transform.rotation = Quaternion.LookRotation(rb.velocity);
@@ -20,22 +20,22 @@ public class Stick : MonoBehaviour
         }
 
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.layer == lm)
-        {
-            Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), gameObject.GetComponent<Collider>());
-        }
-        else if (collision.gameObject.tag != "enemy")           //add player to if and make if, else if
-        {
-            hitsomething = true;
-            Sticked();
-        }
 
+        if (other.gameObject.tag != "enemy")
+        {
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+            hitsomething = true;
+            if (other.gameObject.tag == "Player")
+            {
+                other.gameObject.GetComponent<Statbloc>().health -= 30;
+            }
+        }
     }
     void Sticked()
     {
-        rb.constraints = RigidbodyConstraints.FreezeAll;
+
     }
     public void Unsticked()
     {
