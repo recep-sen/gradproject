@@ -55,12 +55,18 @@ public class PlayerController : MonoBehaviour
 
         Vector3 move = transformdata.forward * y;         //calculating movement vector from input
         Vector3 newmove = new Vector3(move.x, rb.velocity.y, move.z);
-        rb.velocity = newmove;
 
 
-        if (y > 0 || y < 0)
+
+        if ((y > 0 || y < 0) && !anim.GetBool("isAttacking"))
         {
             anim.SetBool("isMoving", true);
+            rb.velocity = newmove;
+        }
+        else if (!anim.GetBool("isAttacking"))
+        {
+            anim.SetBool("isMoving", false);
+            rb.velocity = newmove;
         }
         else
         {
@@ -69,6 +75,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             anim.SetBool("isAttacking", true);
+            rb.velocity = Vector3.zero;
             StartCoroutine(Attackanimationfin());
         }
         if (Input.GetKeyDown(KeyCode.E))
