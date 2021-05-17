@@ -26,8 +26,8 @@ public class ChestScript : MonoBehaviour
             }
             else if (a == 1)
             {
-                statbloc.money += 50;
-                statbloc.thismoney += 50;
+                statbloc.money += 50 * statbloc.scoremltp;
+                statbloc.thismoney += 50 * statbloc.scoremltp;
                 a = 10;
             }
             else if (a == 2)

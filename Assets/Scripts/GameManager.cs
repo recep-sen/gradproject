@@ -10,6 +10,11 @@ public class GameManager : MonoBehaviour
     public static int sceneToLoad;
     public GameState gameState;
     public float score = 0f;
+    public float chests = 1000f;             //min 100
+    public float enemies = 100f;             //max 1000
+    public float trap = 100f;                //max 1000
+    public float respawn = 5f;            //min 0
+    public float scoremltp;
     private void Awake()
     {
         if (instance != null)
@@ -42,6 +47,7 @@ public class GameManager : MonoBehaviour
     }
     void FixedUpdate()
     {
+
         if (gameState == GameState.Loading)
         {
             gotoloading();
@@ -58,7 +64,7 @@ public class GameManager : MonoBehaviour
         {
             gotomainmenu();
         }
-
+        scoremltp = (250f / chests) + (enemies / 400f) + (trap / 400f) + (1.5f / (respawn + 1f));
 
     }
     public void gotoloading()

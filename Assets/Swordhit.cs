@@ -29,8 +29,8 @@ public class Swordhit : MonoBehaviour
         if (other.gameObject.tag == "enemy" && anim.GetBool("isAttacking"))
         {
             other.gameObject.GetComponent<EnemyController>().Died();
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Statbloc>().money += 30;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Statbloc>().thismoney += 30;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Statbloc>().money += 30 * GameManager.instance.scoremltp;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Statbloc>().thismoney += 30 * GameManager.instance.scoremltp;
         }
         else if (other.gameObject.tag == "enemy")
         {

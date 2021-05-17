@@ -31,6 +31,9 @@ public class LevelManager : MonoBehaviour
     void Awake()
     {
         GameManager.instance.gameState = GameManager.GameState.Gameplay;
+        chest_quantity = (int)GameManager.instance.chests;
+        enemy_quantity = (int)GameManager.instance.enemies;
+        quantity = (int)GameManager.instance.trap;
         LevelLoading();
 
     }
