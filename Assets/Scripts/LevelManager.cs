@@ -7,21 +7,24 @@ using UnityEngine.AI;
 public class LevelManager : MonoBehaviour
 
 {
-
+    LoadingManager loadingManager;
+    public GameObject[] trees;
     public GameObject[] chests;
+    public int tree_quantity;
+    public int tree_objectcount;
     public int chest_quantity;
     public int chest_objectcount;
     public GameObject[] enemies;
     public int enemy_quantity;
     public int enemy_objectcount;
     [Header("Generated Texture")]
-    public GameObject[] Terrain1;
+    public GameObject Terrain1;
     [Header("Generated Objects")]                           //getting necessary components and variables
     public GameObject[] object1;
     [Header("Coordinates of Objects")]
     public int x;
     public int z;
-    private int randomobject;
+    private int randomobject = 0;
     private int randomterrain;
     [Header("Object Quantity")]
     public int quantity;
@@ -30,18 +33,18 @@ public class LevelManager : MonoBehaviour
     void Awake()
     {
 
-        GameManager.instance.gameState = GameManager.GameState.Gameplay;
-        LevelLoading();
+        //GameManager.instance.gameState = GameManager.GameState.Gameplay;
+        //LevelLoading();
 
 
 
 
     }
 
-    void LevelLoading()
+    public void LevelLoading()
     {
-        randomterrain = Random.Range(0, 1);
-        Instantiate(Terrain1[randomterrain], new Vector3(0, 0, 0), Quaternion.identity);
+        loadingManager = LoadingManager.Instance;
+        Instantiate(Terrain1, new Vector3(0, 0, 0), Quaternion.identity);
         while (objectcount < quantity)
         {
             randomobject = Random.Range(0, object1.Length);
@@ -78,5 +81,18 @@ public class LevelManager : MonoBehaviour
 
             enemy_objectcount++;
         }
+        while (tree_objectcount < tree_quantity)
+        {
+            randomobject = Random.Range(0, trees.Length);
+            x = Random.Range(0, 500);
+            z = Random.Range(0, 500);
+
+
+
+            Instantiate(trees[randomobject], new Vector3(x, 20, z), Quaternion.identity);
+
+            tree_objectcount++;
+        }
+        loadingManager.loadingOperation.allowSceneActivation = true;
     }
 }

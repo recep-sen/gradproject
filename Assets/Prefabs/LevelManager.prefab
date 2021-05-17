@@ -43,19 +43,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9a864d60331fd7419b8b1fe757cd97e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trees:
+  - {fileID: 9124109292569601786, guid: 79b6d68ff7f02cd409456876b897173c, type: 3}
+  - {fileID: 4132603718739847448, guid: 35245f60f388515438f09e1196f110d6, type: 3}
+  - {fileID: 5484467576644274279, guid: fb30b5c446e0cae458d43962390bd0d5, type: 3}
+  - {fileID: 1804557493192484763, guid: ce1f764623395b74397264645415c463, type: 3}
+  - {fileID: 4641909080576575899, guid: 40806c7f80716ff49beca21083f0dcd0, type: 3}
   chests:
   - {fileID: 1234933539761222, guid: 3af97be74ea27f748a033204951d97c7, type: 3}
   - {fileID: 1234933539761222, guid: 6862004dbcb70b143b17dc8d43eeb42b, type: 3}
   - {fileID: 1234933539761222, guid: 4f6860d3f40b6dc49946ebd8b4baf4c5, type: 3}
+  tree_quantity: 1000
+  tree_objectcount: 0
   chest_quantity: 100
   chest_objectcount: 0
-  Terrain1:
-  - {fileID: 5219819192651701116, guid: 52f2e188ffd4a9a4097cb09a0ffea42f, type: 3}
-  - {fileID: 5219819192651701116, guid: 88261235b744be04e9e5b60b9de90711, type: 3}
-  - {fileID: 5219819192651701116, guid: 452dab88078a6e84bbda34c6b5a2a209, type: 3}
-  - {fileID: 5219819192651701116, guid: 52f2e188ffd4a9a4097cb09a0ffea42f, type: 3}
-  - {fileID: 5219819192651701116, guid: 52f2e188ffd4a9a4097cb09a0ffea42f, type: 3}
-  - {fileID: 5219819192651701116, guid: 52f2e188ffd4a9a4097cb09a0ffea42f, type: 3}
+  enemies:
+  - {fileID: 8979536952676561975, guid: 0d79204046abd4c49b61c1bd053f8c61, type: 3}
+  enemy_quantity: 100
+  enemy_objectcount: 0
+  Terrain1: {fileID: 5219819192651701116, guid: 52f2e188ffd4a9a4097cb09a0ffea42f, type: 3}
   object1:
   - {fileID: 1054875215801658, guid: dee7a332df32c9a4f99531ce6d5c277c, type: 3}
   - {fileID: 1826823735867886, guid: 84b6dcc9019b86143812a6901fecd619, type: 3}

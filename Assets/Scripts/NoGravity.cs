@@ -30,7 +30,7 @@ public class NoGravity : MonoBehaviour
     IEnumerator DstryRb()                  //process of destroying the rb
     {                                      //waiting for 5 seconds to adjust all objects to their pozisitons
                                            //after that destroy the object
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(5f);
 
         Destroy(rb);
         destroyed = true;

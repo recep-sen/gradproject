@@ -9,12 +9,12 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Interactable
+  - Enemy
   - Water
   - UI
   - Floor
-  - Object
-  - Enemy
+  - 
+  - 
   - 
   - 
   - 

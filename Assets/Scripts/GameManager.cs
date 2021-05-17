@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
         Dieded,
         Gotomenu
     }
-    void Update()
+    void FixedUpdate()
     {
         if (gameState == GameState.Loading)
         {

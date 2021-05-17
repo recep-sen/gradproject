@@ -11,20 +11,20 @@ public class IngameUiSlider : MonoBehaviour
     Slider slider;
     GameObject player;
     Statbloc statbloc;
-    TextMeshProUGUI healthtext;
+    public TextMeshProUGUI healthtext;
     GameObject deathscreen;
     RawImage diededscreenimage;
     Image[] diedimage;
     Text[] diedtext;
     TextMeshProUGUI youdiedtext;
     Button[] diedbutton;
+    public TextMeshProUGUI scoretext;
 
     void Start()
     {
         slider = GetComponent<Slider>();
         player = GameObject.Find("Player");
         statbloc = player.GetComponent<Statbloc>();
-        healthtext = GetComponentInChildren<TextMeshProUGUI>();
         deathscreen = GameObject.Find("Dieded");
         diededscreenimage = deathscreen.GetComponentInChildren<RawImage>();
         diedimage = deathscreen.GetComponentsInChildren<Image>();
@@ -67,6 +67,7 @@ public class IngameUiSlider : MonoBehaviour
             }
 
         }
+        scoretext.text = $"Score: {statbloc.money}";
     }
     void Died()
     {
