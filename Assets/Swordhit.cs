@@ -20,6 +20,7 @@ public class Swordhit : MonoBehaviour
         {
             enemystore.GetComponent<EnemyController>().Died();
             GameObject.FindGameObjectWithTag("Player").GetComponent<Statbloc>().money += 30;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Statbloc>().thismoney += 30;
             getready = false;
         }
     }
@@ -29,6 +30,7 @@ public class Swordhit : MonoBehaviour
         {
             other.gameObject.GetComponent<EnemyController>().Died();
             GameObject.FindGameObjectWithTag("Player").GetComponent<Statbloc>().money += 30;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Statbloc>().thismoney += 30;
         }
         else if (other.gameObject.tag == "enemy")
         {

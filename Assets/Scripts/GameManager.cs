@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public static int sceneToLoad;
     public GameState gameState;
-
+    public float score = 0f;
     private void Awake()
     {
         if (instance != null)

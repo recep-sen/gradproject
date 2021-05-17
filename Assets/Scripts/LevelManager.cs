@@ -30,12 +30,8 @@ public class LevelManager : MonoBehaviour
     public int objectcount;
     void Awake()
     {
-
         GameManager.instance.gameState = GameManager.GameState.Gameplay;
         LevelLoading();
-
-
-
 
     }
 

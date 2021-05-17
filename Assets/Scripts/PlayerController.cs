@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private float needforrotation;
     private Animator anim;
     private bool isMoving;
+    Statbloc statbloc;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
         transf = transformdata.Find("CameraRotation").GetComponentInChildren<Transform>();
         anim = GetComponent<Animator>();
         lm2 = LayerMask.GetMask("Interactable");
+        statbloc = GetComponent<Statbloc>();
     }
 
     // Update is called once per frame
@@ -36,6 +38,16 @@ public class PlayerController : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal") * speed;                 //getting input
         float y = Input.GetAxisRaw("Vertical") * speed;
         grounded = Physics.CheckSphere(new Vector3(transformdata.position.x, transformdata.position.y - 0.4f, transformdata.position.z), 0.4f, lm);     //checking if am i close to floor so i cant jump indefinetly
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (statbloc.thismoney > 999)
+            {
+                GameManager.instance.score = statbloc.money;
+
+                GameManager.instance.gameState = GameManager.GameState.Loading;
+            }
+        }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
