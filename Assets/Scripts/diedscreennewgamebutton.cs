@@ -8,4 +8,8 @@ public class diedscreennewgamebutton : MonoBehaviour
     {
         GameManager.instance.gameState = GameManager.GameState.Loading;
     }
+    public void Timecontinous()
+    {
+        Time.timeScale = 1f;
+    }
 }

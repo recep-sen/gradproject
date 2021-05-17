@@ -8,4 +8,8 @@ public class diedscreenexitbutton : MonoBehaviour
     {
         GameManager.instance.gameState = GameManager.GameState.Gotomenu;
     }
+    public void Timecontinous()
+    {
+        Time.timeScale = 1f;
+    }
 }

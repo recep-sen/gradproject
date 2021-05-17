@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject pausemenu;
+    private bool paused = false;
     private Rigidbody rb;                      // getting memory to get rigidbody component
     [Header("Movement and jump variables")]     //headers are here so i wont get lost in editor
     public float speed = 5f;                    // speed variable editable in editor
@@ -34,6 +36,22 @@ public class PlayerController : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal") * speed;                 //getting input
         float y = Input.GetAxisRaw("Vertical") * speed;
         grounded = Physics.CheckSphere(new Vector3(transformdata.position.x, transformdata.position.y - 0.4f, transformdata.position.z), 0.4f, lm);     //checking if am i close to floor so i cant jump indefinetly
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (paused)
+            {
+                paused = false;
+                Time.timeScale = 1f;
+                pausemenu.SetActive(false);
+            }
+            else
+            {
+                paused = true;
+                Time.timeScale = 0f;
+                pausemenu.SetActive(true);
+            }
+        }
 
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
