@@ -6,25 +6,9 @@ using UnityEngine.SceneManagement;
 public class LoadingManager : MonoBehaviour
 {
     public AsyncOperation loadingOperation;
-    public static LoadingManager Instance;
-
-    void Awake()
-    {
-
-        if (Instance != null && Instance != this)
-        {
-            //Destroy(this.gameObject);
-        }
-        else
-        {
-            Instance = this;
-        }
-    }
     // Start is called before the first frame update
     void Start()
     {
         loadingOperation = SceneManager.LoadSceneAsync(GameManager.sceneToLoad);
-        loadingOperation.allowSceneActivation = false;
-
     }
 }

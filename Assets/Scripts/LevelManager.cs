@@ -7,7 +7,6 @@ using UnityEngine.AI;
 public class LevelManager : MonoBehaviour
 
 {
-    LoadingManager loadingManager;
     public GameObject[] trees;
     public GameObject[] chests;
     public int tree_quantity;
@@ -25,7 +24,6 @@ public class LevelManager : MonoBehaviour
     public int x;
     public int z;
     private int randomobject = 0;
-    private int randomterrain;
     [Header("Object Quantity")]
     public int quantity;
     [Header("Objects In Scene")]
@@ -33,8 +31,8 @@ public class LevelManager : MonoBehaviour
     void Awake()
     {
 
-        //GameManager.instance.gameState = GameManager.GameState.Gameplay;
-        //LevelLoading();
+        GameManager.instance.gameState = GameManager.GameState.Gameplay;
+        LevelLoading();
 
 
 
@@ -43,7 +41,6 @@ public class LevelManager : MonoBehaviour
 
     public void LevelLoading()
     {
-        loadingManager = LoadingManager.Instance;
         Instantiate(Terrain1, new Vector3(0, 0, 0), Quaternion.identity);
         while (objectcount < quantity)
         {
@@ -93,6 +90,5 @@ public class LevelManager : MonoBehaviour
 
             tree_objectcount++;
         }
-        loadingManager.loadingOperation.allowSceneActivation = true;
     }
 }

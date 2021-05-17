@@ -4,22 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class InitiateLevel : MonoBehaviour
 {
-    LoadingManager loadingManager;
-    GameObject lvlmngr;
-    private void Start()
+    public LevelManager levelmanager;
+    private void Awake()
     {
-        loadingManager = LoadingManager.Instance;
-    }
-    void FixedUpdate()
-    {
-        lvlmngr = GameObject.Find("LevelManager");
-        if (loadingManager.loadingOperation.isDone)
-        {
-            lvlmngr.GetComponent<LevelManager>().LevelLoading();
-            GameManager.instance.gameState = GameManager.GameState.Gameplay;
-            Destroy(this.gameObject);
-        }
-
-
+        Instantiate(levelmanager, Vector3.zero, Quaternion.identity);
     }
 }
