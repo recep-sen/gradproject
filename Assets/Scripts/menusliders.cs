@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 public class menusliders : MonoBehaviour
 {
-    public GameObject text;
+    public GameObject text;                                                 //sliders responses
     public void slider1()
     {
         GameManager.instance.chests = gameObject.GetComponent<Slider>().value;

@@ -1,19 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 public class Explosiondeleter : MonoBehaviour
 {
-    ParticleSystem particlesystem;
+    ParticleSystem particlesystem;                             //variables
     void Start()
     {
-        particlesystem = GetComponent<ParticleSystem>();
+        particlesystem = GetComponent<ParticleSystem>();           //reference
     }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
-        if (!particlesystem.IsAlive())
+        if (!particlesystem.IsAlive())                              //deleting after effect is over
         {
             Destroy(gameObject);
         }

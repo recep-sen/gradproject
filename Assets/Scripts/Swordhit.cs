@@ -1,21 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 public class Swordhit : MonoBehaviour
 {
     Animator anim;
     private bool getready = false;
     GameObject enemystore;
-    // Start is called before the first frame update
     void Start()
     {
         anim = GetComponentInParent<Animator>();
     }
-
-    // Update is called once per frame
     void FixedUpdate()
-    {
+    {                                                                   //checking hit
         if (getready && anim.GetBool("isAttacking"))
         {
             enemystore.GetComponent<EnemyController>().Died();
@@ -24,7 +18,7 @@ public class Swordhit : MonoBehaviour
             getready = false;
         }
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)                                 //checking if it is a hit with right thing
     {
         if (other.gameObject.tag == "enemy" && anim.GetBool("isAttacking"))
         {

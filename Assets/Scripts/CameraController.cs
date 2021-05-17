@@ -1,26 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 public class CameraController : MonoBehaviour
 {
     Transform ts;
     public float x = 0f;
-    public float y = 0f;
+    public float y = 0f;                                 //variables
     public float cmspeed = 50f;
-
-    // Start is called before the first frame update
     void Start()
     {
-        ts = GetComponent<Transform>();
+        ts = GetComponent<Transform>();                   //getting reference
     }
-
-    // Update is called once per frame
     void Update()
     {
         x = Input.GetAxisRaw("Mouse X");
-        y = Input.GetAxisRaw("Mouse Y");
-
+        y = Input.GetAxisRaw("Mouse Y");                      //rotate with mouse movements
         if (x > 0f)
         {
             ts.Rotate(Vector3.up * Time.deltaTime * cmspeed * x);
@@ -29,14 +21,5 @@ public class CameraController : MonoBehaviour
         {
             ts.Rotate(Vector3.up * Time.deltaTime * cmspeed * x);
         }
-        /*if (y > 0f)
-        {
-            ts.Rotate(-Vector3.forward * Time.deltaTime * cmspeed * y, Space.Self);
-        }
-        else if (y < 0f)
-        {
-            ts.Rotate(-Vector3.forward * Time.deltaTime * cmspeed * y, Space.Self);
-        }*/
-
     }
 }

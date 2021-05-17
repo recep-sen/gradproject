@@ -1,15 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 public class diedscreenexitbutton : MonoBehaviour
 {
     public void Buttonclicked()
     {
-        GameManager.instance.gameState = GameManager.GameState.Gotomenu;
+        GameManager.instance.gameState = GameManager.GameState.Gotomenu;     //setting instance to go to loading
     }
     public void Timecontinous()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = 1f;                                //if it is paused resume
     }
 }

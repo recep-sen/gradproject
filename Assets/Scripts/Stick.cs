@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 public class Stick : MonoBehaviour
 {
     Rigidbody rb;
@@ -13,15 +10,13 @@ public class Stick : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (!hitsomething)
+        if (!hitsomething)                                                      //setting the point of arrow to flight location
         {
             transform.rotation = Quaternion.LookRotation(rb.velocity);
         }
-
     }
     private void OnTriggerEnter(Collider other)
-    {
-
+    {                                                                   //if arrow collides it will stick and damage the player
         if (other.gameObject.tag != "enemy")
         {
             rb.constraints = RigidbodyConstraints.FreezeAll;
@@ -34,7 +29,7 @@ public class Stick : MonoBehaviour
     }
     public void Unsticked()
     {
-        rb.constraints = RigidbodyConstraints.None;
+        rb.constraints = RigidbodyConstraints.None;                     //making it unstick if it is called back
         hitsomething = false;
     }
 }

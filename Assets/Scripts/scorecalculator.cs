@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 public class scorecalculator : MonoBehaviour
@@ -13,7 +11,7 @@ public class scorecalculator : MonoBehaviour
         text = gameObject.GetComponent<TextMeshProUGUI>();
     }
     void Update()
-    {
+    {                                                                   //score calculator for ui
         text.text = $"SCORE: {statbloc.money}";
     }
 }

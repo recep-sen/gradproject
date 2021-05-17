@@ -1,11 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.AI;
-
 public class LevelManager : MonoBehaviour
-
 {
     public GameObject[] trees;
     public GameObject[] chests;
@@ -31,26 +25,20 @@ public class LevelManager : MonoBehaviour
     void Awake()
     {
         GameManager.instance.gameState = GameManager.GameState.Gameplay;
-        chest_quantity = (int)GameManager.instance.chests;
+        chest_quantity = (int)GameManager.instance.chests;                 //references
         enemy_quantity = (int)GameManager.instance.enemies;
         quantity = (int)GameManager.instance.trap;
         LevelLoading();
-
     }
-
     public void LevelLoading()
     {
-        Instantiate(Terrain1, new Vector3(0, 0, 0), Quaternion.identity);
+        Instantiate(Terrain1, new Vector3(0, 0, 0), Quaternion.identity);      //initilazing all objects of the scene with variables gotten from user
         while (objectcount < quantity)
         {
             randomobject = Random.Range(0, object1.Length);
             x = Random.Range(0, 500);
             z = Random.Range(0, 500);
-
-
-
             Instantiate(object1[randomobject], new Vector3(x, 20, z), Quaternion.identity);
-
             objectcount++;
         }
         while (chest_objectcount < chest_quantity)
@@ -58,11 +46,7 @@ public class LevelManager : MonoBehaviour
             randomobject = Random.Range(0, chests.Length);
             x = Random.Range(0, 500);
             z = Random.Range(0, 500);
-
-
-
             Instantiate(chests[randomobject], new Vector3(x, 20, z), Quaternion.identity);
-
             chest_objectcount++;
         }
         while (enemy_objectcount < enemy_quantity)
@@ -70,11 +54,7 @@ public class LevelManager : MonoBehaviour
             randomobject = Random.Range(0, enemies.Length);
             x = Random.Range(0, 500);
             z = Random.Range(0, 500);
-
-
-
             Instantiate(enemies[randomobject], new Vector3(x, 20, z), Quaternion.identity);
-
             enemy_objectcount++;
         }
         while (tree_objectcount < tree_quantity)
@@ -82,11 +62,7 @@ public class LevelManager : MonoBehaviour
             randomobject = Random.Range(0, trees.Length);
             x = Random.Range(0, 500);
             z = Random.Range(0, 500);
-
-
-
             Instantiate(trees[randomobject], new Vector3(x, 20, z), Quaternion.identity);
-
             tree_objectcount++;
         }
     }

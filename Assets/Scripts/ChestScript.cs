@@ -1,24 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 public class ChestScript : MonoBehaviour
 {
     Animator anim;
     private bool alreadyplayed = false;
-    public int a = 10;
+    public int a = 10;                               //variables
     Statbloc statbloc;
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
-        statbloc = GameObject.FindGameObjectWithTag("Player").GetComponent<Statbloc>();
+        statbloc = GameObject.FindGameObjectWithTag("Player").GetComponent<Statbloc>();     //reference
     }
     public void SetTrue()
     {
-        if (!alreadyplayed)
+        if (!alreadyplayed)                                                     //if it is first time does which chest does
         {
             anim.SetBool("transition", true);
-
             if (a == 0)
             {
                 statbloc.health += 50;

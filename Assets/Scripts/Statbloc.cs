@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 public class Statbloc : MonoBehaviour
 {
     public float maxhealth;
@@ -10,18 +7,15 @@ public class Statbloc : MonoBehaviour
     public float money;
     public float thismoney;
     public float scoremltp;
-    // Start is called before the first frame update
     void Start()
     {
         money = GameManager.instance.score;
         respawn = (int)GameManager.instance.respawn;
         scoremltp = GameManager.instance.scoremltp;
     }
-
-    // Update is called once per frame
     void Update()
     {
-        if (health > maxhealth)
+        if (health > maxhealth)                                 //setting max health and health and storing player data
         {
             health = maxhealth;
         }

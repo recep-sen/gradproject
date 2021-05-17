@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 public class trapActivated : MonoBehaviour
 {
     public GameObject tobeactivated;
@@ -17,7 +14,7 @@ public class trapActivated : MonoBehaviour
         if (timeron)
         {
             time += Time.deltaTime;
-            if (time >= 1f)
+            if (time >= 1f)                                           //simple timer to damage over time
             {
                 statbloc.health -= 2;
                 time = 0f;
@@ -27,7 +24,7 @@ public class trapActivated : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
-        {
+        {                                                           //damaging player
             tobeactivated.SetActive(true);
             timeron = true;
             statbloc.health -= 2;
@@ -37,7 +34,7 @@ public class trapActivated : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            tobeactivated.SetActive(false);
+            tobeactivated.SetActive(false);                                 //closing trap if player leaves
             timeron = false;
         }
     }

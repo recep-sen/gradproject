@@ -1,28 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 public class Explodedchest : MonoBehaviour
 {
     public ChestScript chestScript;
     public Transform trans;
-    public GameObject gameobject;
+    public GameObject gameobject;                                           //variables
     void Start()
     {
-        chestScript = GetComponentInParent<ChestScript>();
+        chestScript = GetComponentInParent<ChestScript>();                //references
         trans = GetComponentInParent<Transform>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (trans.rotation.x >= -85)
         {
-            chestScript.a = 2;
+            chestScript.a = 2;                                          //refering to other script
         }
     }
     public void Explode()
     {
-        gameobject.SetActive(true);
+        gameobject.SetActive(true);                        //activating effect
     }
 }
